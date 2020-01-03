@@ -1,0 +1,12 @@
+{
+    "loader_text": "погрузка",
+
+    "main_card_full_name": "Marcos Alcocer",
+    "main_card_job_position": "Full Stack Web & Android Developer",
+    "main_card_technologies": "NodeJS, PHP, MySQL, JS, CSS3, HTML5, React Native",
+
+    "nav_about_me": "Обо мне",
+    "nav_experience": "Опыт",
+    "nav_achievements": "достижения",
+    "nav_portfolio": "портфолио"
+}

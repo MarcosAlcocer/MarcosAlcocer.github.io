@@ -6,24 +6,91 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="assets/icons/favicon.png" type="image/png">
     <title>Marcos Alcocer</title>
+    <script src="js/language-handler.js"></script>
 </head>
 <body>
+    <div class="language-prompt" id="language_prompt">
+        <div class="v-align">
+            <ul>
+                <li onclick="setlang('es-MX');">Español</li>
+                <li onclick="setlang('en-US');">English</li>
+                <li onclick="setlang('pt-PT');">Português</li>
+                <li onclick="setlang('ru-RU');">русский</li>
+            </ul>
+        </div>
+        <script>
+            function setlang(lang) {
+                setLanguage(lang);
+                setTimeout(function(){
+                    solidify_loader();
+                }, 1000);
+                document.getElementById('language_prompt').outerHTML = "";
+            }            
+        </script>
+    </div>
+    <div class="loader" id="loader_container">
+        <div class="circle-container">
+            <i class="lang" id="loader_text">Cargando</i>
+            <div class="circle" id="circle_page_loader">
+                <img src="assets/img/p5-lite.jpg" alt="Profile" id="circle_page_loader_img">
+            </div>
+        </div>
+        <script>
+            function seamless_loading_transition() {
+                let loader = document.getElementById('circle_page_loader');
+                let loader_img = document.getElementById('circle_page_loader_img');
+                let target_element = document.getElementById('info_profile_picture');
+                let loader_pos = loader.getBoundingClientRect();
+                let target_pos = target_element.getBoundingClientRect();
+                //target_pos.top - loader_pos.top = distance between loader and the profile picture in the header
+                loader_img.style = "width: 150px;";
+                let translate = target_pos.top-loader_pos.top+25;
+                console.log(translate);
+                loader.style = "transform: translate(0px, "+translate+"px);";
+                document.getElementById('loader_container').style = "animation: hide_loader 0.5s linear 1s; animation-fill-mode: forwards;";
+                setTimeout(function(){/*removes element after the previous animation has taken place*/
+                document.getElementById('loader_container').classList.add('display-none');
+            }, 1600);
+            }
+            function solidify_loader() {
+                let loader = document.getElementById('circle_page_loader');
+                loader.classList.add('solid-circle');
+                setTimeout(function(){
+                    document.getElementById('loader_text').style = "display: none;"
+                    loader.classList.add('stop-animation');
+                    document.getElementById('circle_page_loader_img').classList.add('opacity-1');
+                    //faster animation:
+                    seamless_loading_transition();
+                }, 2000);
+                /*
+                Slower animation
+                setTimeout(function(){
+                    seamless_loading_transition();
+                }, 3000);
+                */
+            }
+        </script>
+    </div>
     <div class="global-container">
 
         <header>
+            <div class="settings-toggler" title="Settings">
+                <img src="assets/icons/settings-white.svg" alt="Settings">
+            </div>
             <div class="info">
-                <img src="assets/img/p5-lite.jpg" alt="profile">
-                <h1>Marcos Alcocer</h1>
-                <h2>Full Stack Web & Android Developer</h2>
-                <p class="technologies">NodeJS, PHP, MySQL, JS, CSS3, HTML5, React Native</p>
+                <img src="assets/img/p5-lite.jpg" alt="profile" id="info_profile_picture">
+                <h1 class="lang" id="main_card_full_name"></h1>
+                <h2 class="lang" id="main_card_job_position"></h2>
+                <p class="technologies lang" id="main_card_technologies"></p>
             </div>
             <div class="navigation">
                 <ul>
-                    <li><i>Sobre mí</i></li>
-                    <li><i>Experiencia</i></li>
-                    <li><i>Logros destacados</i></li>
-                    <li><i>Portafolio</i></li>
+                    <li><i class="lang" id="nav_about_me"></i></li>
+                    <li><i class="lang" id="nav_experience"></i></li>
+                    <li><i class="lang" id="nav_achievements"></i></li>
+                    <li><i class="lang" id="nav_portfolio"></i></li>
                 </ul>
             </div>
             

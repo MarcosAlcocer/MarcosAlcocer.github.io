@@ -9,3 +9,12 @@
     height: 100%;
     max-width: 100vw;
 }
+.stop-animation{
+    animation-name: none !important;
+}
+.opacity-1{
+    opacity: 1 !important;
+}
+.display-none{
+    display: none !important;
+}
