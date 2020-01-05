@@ -6,33 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="icon" href="assets/icons/favicon.png" type="image/png">
+    <link rel="icon" href="assets/icons/favicon.png" type="image/png" id="favicon">
     <title>Marcos Alcocer</title>
     <script src="js/language-handler.js"></script>
+    <script src="js/favicon-animation.js"></script>
 </head>
 <body>
     <div class="language-prompt" id="language_prompt">
         <div class="v-align">
             <ul>
-                <li onclick="setlang('es-MX');">Español</li>
-                <li onclick="setlang('en-US');">English</li>
-                <li onclick="setlang('pt-PT');">Português</li>
-                <li onclick="setlang('ru-RU');">русский</li>
+                <li onclick="lang_settings('es-MX');">Español</li>
+                <li onclick="lang_settings('en-US');">English</li>
+                <li onclick="lang_settings('pt-PT');">Português</li>
+                <li onclick="lang_settings('ru-RU');">Русский</li>
             </ul>
         </div>
-        <script>
-            function setlang(lang) {
-                setLanguage(lang);
-                setTimeout(function(){
-                    solidify_loader();
-                }, 1000);
-                document.getElementById('language_prompt').outerHTML = "";
-            }            
-        </script>
     </div>
     <div class="loader" id="loader_container">
         <div class="circle-container">
-            <i class="lang" id="loader_text">Cargando</i>
+            <i class="lang" id="loader_text"></i>
             <div class="circle" id="circle_page_loader">
                 <img src="assets/img/p5-lite.jpg" alt="Profile" id="circle_page_loader_img">
             </div>

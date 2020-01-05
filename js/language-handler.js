@@ -1,6 +1,11 @@
 //lang_dependant_text stores an array with all the elements to wich their "innerHTML" is language dependant, that is all the elements that contain text that gets translated
 var lang_dependant_text = document.getElementsByClassName("lang");
-function setLanguage(lang) {
+
+var supported_languages = ["es-MX", "en-US", "pt-PT", "ru-RU"];
+
+
+
+function setLanguage(lang) { /*prints the selected ('lang') version of the text*/
     var requestLanguage = new XMLHttpRequest();
     requestLanguage.open('GET', 'assets/lang/'+lang+'.json', true);
     requestLanguage.onload = function() {
@@ -21,3 +26,27 @@ function setLanguage(lang) {
     };
     requestLanguage.send();    
 }
+
+function lang_settings(lang) {
+    /*if (supported_languages.indexOf(lang) == -1) {
+        console.log('Unsupported language')
+    }
+    else{
+        if (localStorage.getItem("language") === null) {
+            console.log('no language in memory');
+            localStorage.setItem("language", lang);
+        }
+        else{
+            lang = localStorage.getItem("language");
+            console.log('language in memory is '+lang);
+        }
+    }*/
+    
+    
+    setLanguage(lang);
+    document.getElementById('language_prompt').classList.add('display-none');
+    setTimeout(function(){
+        solidify_loader();
+    }, 1000);
+    
+}   
