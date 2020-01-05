@@ -10,9 +10,8 @@ function setLanguage(lang) { /*prints the selected ('lang') version of the text*
     requestLanguage.open('GET', 'assets/lang/'+lang+'.json', true);
     requestLanguage.onload = function() {
         if (this.status >= 200 && this.status < 400) {
-            console.log("Success!");
+            //console.log(lang+" language pack successfully retrieved");
             var data = JSON.parse(this.response);
-            console.log(data);
             for (let i = 0; i < lang_dependant_text.length; i++) {
                 lang_dependant_text[i].innerHTML = data[lang_dependant_text[i].id];
             }
@@ -27,26 +26,27 @@ function setLanguage(lang) { /*prints the selected ('lang') version of the text*
     requestLanguage.send();    
 }
 
-function lang_settings(lang) {
-    /*if (supported_languages.indexOf(lang) == -1) {
-        console.log('Unsupported language')
+function lang_stored_settings() {
+    //if there are previous language settings and if those are valid settings then use them
+    if (localStorage.getItem("language") !== null && supported_languages.indexOf(localStorage.getItem("language")) != -1) {
+        //console.log('there are stored settings');
+        setLanguage(localStorage.getItem("language"));
+        document.getElementById('language_prompt').classList.add('display-none');
+        setTimeout(function(){
+            solidify_loader();
+        }, 1000);
     }
+    //if there aren't any previous valid language settings then show the user a prompt to choose some
     else{
-        if (localStorage.getItem("language") === null) {
-            console.log('no language in memory');
-            localStorage.setItem("language", lang);
-        }
-        else{
-            lang = localStorage.getItem("language");
-            console.log('language in memory is '+lang);
-        }
-    }*/
+        document.getElementById('language_prompt').classList.remove('display-none');
+    }
+}
+function lang_settings(lang) {
+    if (supported_languages.indexOf(lang) != -1) {
+        localStorage.setItem("language", lang)/*<- this stores the user's language settings*/
+        lang_stored_settings();/*this uses the user's stored settings to load the page's language*/
+    }
     
-    
-    setLanguage(lang);
-    document.getElementById('language_prompt').classList.add('display-none');
-    setTimeout(function(){
-        solidify_loader();
-    }, 1000);
-    
-}   
+}
+
+lang_stored_settings();

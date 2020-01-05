@@ -21,4 +21,4 @@ function animate_favicon() {
     setTimeout(function(){ favicon.href = "assets/icons/favicon_f2.png"; }, speed*26);
     setTimeout(function(){ favicon.href = "assets/icons/favicon.png"; }, speed*27);
 }
-setInterval(animate_favicon, 15000);
+setInterval(animate_favicon, 60000);
