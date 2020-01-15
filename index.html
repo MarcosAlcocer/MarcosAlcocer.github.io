@@ -37,7 +37,6 @@
                 //target_pos.top - loader_pos.top = distance between loader and the profile picture in the header
                 loader_img.style = "width: 150px;";
                 let translate = target_pos.top-loader_pos.top+25;
-                console.log(translate);
                 loader.style = "transform: translate(0px, "+translate+"px);";
                 document.getElementById('loader_container').style = "animation: hide_loader 0.5s linear 1s; animation-fill-mode: forwards;";
                 setTimeout(function(){/*removes element after the previous animation has taken place*/
