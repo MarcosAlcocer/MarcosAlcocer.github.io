@@ -1,3 +1,8 @@
+body{
+    background-image: url("../assets/img/mountains1.jpg");
+    background-size: cover;
+}
+
 .language-prompt{
     display: inline-block;
     height: 100vh;
@@ -128,14 +133,37 @@ header{
     display: inline-block;
     height: 100vh;
     width: 100%;
-    background-color: #2098D1;
+    background-color: rgba(32, 152, 209, 0.9);
     position: relative;
+    transition: width 0.3s;
 }
 header .settings-toggler{
     display: inline-block;
     position: absolute;
     top: 10px;
     left: 10px;
+}
+header .settings-toggler .settings-menu{
+    display: inline-block;
+    height: auto;
+    width: auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    white-space: nowrap;
+
+    position: absolute;
+    top: 35px;
+    left: 35px;
+}
+header .settings-toggler .settings-menu ul{
+    list-style-type: none;
+}
+header .settings-toggler .settings-menu ul li{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    font-size: 14px;
+    cursor: pointer;
 }
 header .settings-toggler img{
     display: inline-block;
@@ -218,4 +246,14 @@ header .navigation ul li i{
     color: inherit;
     font-size: 20px;
     font-style: normal;
+}
+
+
+/*header as sidebar*/
+
+.sidebar{
+    width: 250px;
+}
+.sidebar .info{
+    text-align: left !important;
 }
