@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <header>
+        <div class="week-list">
+            <div class="week-list-day" id="week_list_day_1st">
+                <p class="week-list-day-letter"></p>
+                <p class="week-list-day-number"></p>
+            </div>
+            <div class="week-list-day">
+                <p class="week-list-day-letter"></p>
+                <p class="week-list-day-number"></p>
+            </div>
+            <div class="week-list-day">
+                <p class="week-list-day-letter"></p>
+                <p class="week-list-day-number"></p>
+            </div>
+            <div class="week-list-day">
+                <p class="week-list-day-letter"></p>
+                <p class="week-list-day-number"></p>
+            </div>
+            <div class="week-list-day">
+                <p class="week-list-day-letter"></p>
+                <p class="week-list-day-number"></p>
+            </div>
+            <div class="week-list-day">
+                <p class="week-list-day-letter"></p>
+                <p class="week-list-day-number"></p>
+            </div>
+            <div class="week-list-day">
+                <p class="week-list-day-letter"></p>
+                <p class="week-list-day-number"></p>
+            </div>
+        </div>
+        <div class="calendar-button" onclick="toggleCalendarVisibility(this);" id="calendar_button">
+            <img src="assets/icons/date_range.svg" alt="">
+        </div>
+    </header>
+
+    <div class="calendar-menu calendar-menu-hidden" id="calendarMenu">
+        <div class="calendar-menu-months-container" id="calendar_menu_months_container">
+            <div class="calendar-menu-month calendar-previous-month">
+                <div class="month-name-container">
+                    <div>
+                        <p class="month-name-text"></p>
+                        <p class="month-year-text"></p>
+                    </div>
+                </div>
+                <table class="calendar-table"></table>
+            </div>
+            <div class="calendar-menu-month calendar-current-month">
+                <div class="month-name-container">
+                    <div>
+                        <p class="month-name-text"></p>
+                        <p class="month-year-text"></p>
+                    </div>
+                </div>
+                <table class="calendar-table"></table>
+            </div>
+            <div class="calendar-menu-month calendar-next-month">
+                <div class="month-name-container">
+                    <div>
+                        <p class="month-name-text"></p>
+                        <p class="month-year-text"></p>
+                    </div>
+                </div>
+                <table class="calendar-table"></table>
+            </div>
+        </div>
+        <div class="calendar-navigation">
+            <img src="assets/icons/arrow_left.svg" alt="" class="calendar-nav-left" onclick="navCalendar('previous', -1)">
+            <img src="assets/icons/arrow_right.svg" alt="" class="calendar-nav-right" onclick="navCalendar('next', 1)">
+        </div>
+    </div>
+
+    <div class="event-items-container" id="eventItemsContainer">
+        
+    </div>
+    
+    
+    <script src="assets/js/calendar_structure.js"></script>
+    <script src="assets/js/languages_pack.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/calendar_data.js"></script>
+</body>
+</html>
