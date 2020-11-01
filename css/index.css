@@ -144,7 +144,8 @@ header .settings-toggler{
     left: 10px;
 }
 header .settings-toggler .settings-menu{
-    display: inline-block;
+    /*display: inline-block;*/
+    display: none;/*temporal change*/
     height: auto;
     width: auto;
     padding: 10px;
@@ -224,6 +225,11 @@ header .navigation{
     height: auto;
     width: 100%;
     background-color: #333333;
+}
+@media only screen and (max-width: 500px) {
+    header .navigation{
+        display: none;
+    }
 }
 header .navigation ul{
     display: inline-block;
