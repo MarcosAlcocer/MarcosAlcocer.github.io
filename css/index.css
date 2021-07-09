@@ -1,3 +1,13 @@
+
+/*while under construction*/
+.navigation, .settings-toggler{
+    display: none !important;
+}
+
+
+
+
+
 body{
     background-image: url("../assets/img/mountains1.jpg");
     background-size: cover;
